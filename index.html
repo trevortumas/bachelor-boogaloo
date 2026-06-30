@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Presentation</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+<style>
+  .reveal h1 { font-size: 2.2em; }
+  .reveal h2 { font-size: 1.6em; }
+  .reveal ul { font-size: 0.9em; }
+  .reveal .subtitle { font-size: 0.7em; color: #8d99ae; margin-top: 0.5em; }
+  .reveal .highlight { color: #4fc3f7; }
+  .reveal .emoji { font-size: 1.4em; }
+</style>
+</head>
+<body>
+<div class="reveal">
+  <div class="slides">
+
+    <section>
+      <h1>Welcome</h1>
+      <p class="subtitle">A Reveal.js Test Presentation</p>
+      <p class="subtitle">Swipe or press arrow keys to navigate</p>
+    </section>
+
+    <section>
+      <h2>Why Reveal.js?</h2>
+      <ul>
+        <li>Single HTML file — no dependencies to install</li>
+        <li>Works on desktop, tablet, and <span class="highlight">mobile</span></li>
+        <li>Touch swipe navigation</li>
+        <li>Host anywhere for a shareable URL</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Features</h2>
+      <ul>
+        <li><span class="emoji">🎨</span> Multiple built-in themes</li>
+        <li><span class="emoji">📊</span> Code highlighting & math support</li>
+        <li><span class="emoji">🔀</span> Vertical & horizontal slide navigation</li>
+        <li><span class="emoji">📱</span> Responsive on all screen sizes</li>
+      </ul>
+    </section>
+
+    <section>
+      <section>
+        <h2>Vertical Slides</h2>
+        <p>Swipe <span class="highlight">down</span> to see a nested slide</p>
+      </section>
+      <section>
+        <h2>You found it!</h2>
+        <p>Vertical slides are great for supplementary content</p>
+      </section>
+    </section>
+
+    <section>
+      <h2>Code Example</h2>
+      <pre><code data-trim>
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet("World"));
+      </code></pre>
+    </section>
+
+    <section>
+      <h1>That's it!</h1>
+      <p class="subtitle">Host this file anywhere to share via URL</p>
+    </section>
+
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    touch: true,
+    controls: true,
+    progress: true,
+    center: true,
+    transition: 'slide'
+  });
+</script>
+</body>
+</html>

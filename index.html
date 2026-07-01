@@ -3,73 +3,376 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test Presentation</title>
+<title>Bachelor Boogaloo</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  .reveal h1 { font-size: 2.2em; }
-  .reveal h2 { font-size: 1.6em; }
-  .reveal ul { font-size: 0.9em; }
-  .reveal .subtitle { font-size: 0.7em; color: #8d99ae; margin-top: 0.5em; }
-  .reveal .highlight { color: #4fc3f7; }
-  .reveal .emoji { font-size: 1.4em; }
+  :root {
+    --wood-dark: #1a1108;
+    --wood-mid: #2d1f10;
+    --amber: #d4a054;
+    --amber-light: #e8b96a;
+    --cream: #f5efe6;
+    --cream-dim: #bfb6a8;
+    --fire: #c0541e;
+  }
+
+  .reveal-viewport {
+    background: linear-gradient(160deg, var(--wood-dark) 0%, #241810 50%, var(--wood-mid) 100%);
+  }
+
+  .reveal {
+    font-family: 'Inter', sans-serif;
+    color: var(--cream);
+  }
+
+  .reveal h1, .reveal h2, .reveal h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--amber-light);
+    text-transform: none;
+    letter-spacing: 0.01em;
+  }
+
+  .reveal h1 { font-size: 2.6em; font-weight: 900; }
+  .reveal h2 { font-size: 1.8em; font-weight: 700; }
+  .reveal h3 { font-size: 1.3em; font-weight: 700; }
+
+  .reveal p, .reveal li {
+    font-weight: 300;
+    line-height: 1.6;
+    font-size: 0.85em;
+  }
+
+  .reveal ul { list-style: none; padding-left: 0; }
+  .reveal ul li::before {
+    content: "—";
+    color: var(--amber);
+    margin-right: 0.5em;
+  }
+
+  .reveal .accent { color: var(--amber); }
+  .reveal .fire { color: var(--fire); }
+  .reveal .dim { color: var(--cream-dim); font-size: 0.7em; }
+
+  .reveal .big-emoji { font-size: 3em; margin-bottom: 0.3em; }
+  .reveal .stamp {
+    display: inline-block;
+    border: 3px solid var(--fire);
+    color: var(--fire);
+    padding: 0.2em 0.6em;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 1.6em;
+    transform: rotate(-5deg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .reveal .detail-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.4em 1.2em;
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .reveal .detail-grid .label {
+    color: var(--amber);
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .reveal .groomsman-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6em;
+  }
+  .reveal .groomsman-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--amber);
+  }
+  .reveal .groomsman-card .placeholder-photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--amber);
+    background: var(--wood-mid);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3em;
+  }
+  .reveal .groomsman-card .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    color: var(--amber-light);
+    font-weight: 700;
+  }
+  .reveal .groomsman-card .connection {
+    color: var(--cream-dim);
+    font-size: 0.75em;
+    font-style: italic;
+  }
+  .reveal .groomsman-card .bio {
+    font-size: 0.8em;
+    max-width: 500px;
+  }
+  .reveal .groomsman-card .superlative {
+    color: var(--amber);
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+
+  .reveal .divider {
+    width: 80px;
+    height: 2px;
+    background: var(--amber);
+    margin: 0.8em auto;
+  }
+
+  .reveal .cabin-list {
+    text-align: left;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  .reveal a { color: var(--amber); }
+  .reveal a:hover { color: var(--amber-light); }
+
+  .reveal .progress span { background: var(--amber); }
+  .reveal .controls { color: var(--amber); }
+
+  @media (max-width: 600px) {
+    .reveal h1 { font-size: 1.8em; }
+    .reveal h2 { font-size: 1.3em; }
+    .reveal .groomsman-card img,
+    .reveal .groomsman-card .placeholder-photo {
+      width: 150px;
+      height: 150px;
+    }
+  }
 </style>
 </head>
 <body>
 <div class="reveal">
   <div class="slides">
 
+    <!-- ==================== INTRO ==================== -->
     <section>
-      <h1>Welcome</h1>
-      <p class="subtitle">A Reveal.js Test Presentation</p>
-      <p class="subtitle">Swipe or press arrow keys to navigate</p>
+      <p class="dim" style="letter-spacing: 0.3em; text-transform: uppercase;">TOP SECRET</p>
+      <h1 style="margin-bottom: 0.1em;">You've Been<br>Selected.</h1>
+      <div class="divider"></div>
+      <p>This message will <span class="fire">not</span> self-destruct.</p>
+      <p class="dim">Swipe to continue &rarr;</p>
     </section>
 
     <section>
-      <h2>Why Reveal.js?</h2>
-      <ul>
-        <li>Single HTML file — no dependencies to install</li>
-        <li>Works on desktop, tablet, and <span class="highlight">mobile</span></li>
-        <li>Touch swipe navigation</li>
-        <li>Host anywhere for a shareable URL</li>
-      </ul>
+      <div class="big-emoji">💍</div>
+      <h2>I'm Getting Married.</h2>
+      <div class="divider"></div>
+      <p>And I need you in my corner.</p>
     </section>
 
     <section>
-      <h2>Features</h2>
-      <ul>
-        <li><span class="emoji">🎨</span> Multiple built-in themes</li>
-        <li><span class="emoji">📊</span> Code highlighting & math support</li>
-        <li><span class="emoji">🔀</span> Vertical & horizontal slide navigation</li>
-        <li><span class="emoji">📱</span> Responsive on all screen sizes</li>
-      </ul>
+      <div class="stamp">Will You Be One of<br>My Groomsmen?</div>
+      <br><br>
+      <p>Before you answer, let me tell you what you're signing up for.</p>
+    </section>
+
+    <!-- ==================== WEDDING DETAILS ==================== -->
+    <section>
+      <h2>The Wedding</h2>
+      <div class="divider"></div>
+      <p class="dim">What you need to know</p>
     </section>
 
     <section>
-      <section>
-        <h2>Vertical Slides</h2>
-        <p>Swipe <span class="highlight">down</span> to see a nested slide</p>
-      </section>
-      <section>
-        <h2>You found it!</h2>
-        <p>Vertical slides are great for supplementary content</p>
-      </section>
+      <h3>The Details</h3>
+      <div class="divider"></div>
+      <div class="detail-grid">
+        <span class="label">Date</span>
+        <span>April 15th, 2027</span>
+        <span class="label">Venue</span>
+        <span><a href="https://www.monroestreetabbey.com/" target="_blank">Monroe Street Abbey</a></span>
+        <span class="label">Size</span>
+        <span>~40 people &mdash; family & close friends only</span>
+        <span class="label">Dress Code</span>
+        <span>TBD &mdash; no matching suits. Look good, be comfortable.</span>
+      </div>
+      <br>
+      <p class="dim">You made the cut. Don't make it weird.</p>
+    </section>
+
+    <!-- ==================== BACHELOR PARTY ==================== -->
+    <section>
+      <h2>The Bachelor Party</h2>
+      <div class="divider"></div>
+      <p class="dim">The main event (sorry, wedding)</p>
     </section>
 
     <section>
-      <h2>Code Example</h2>
-      <pre><code data-trim>
-function greet(name) {
-  return `Hello, ${name}!`;
-}
-
-console.log(greet("World"));
-      </code></pre>
+      <h3>The Vision</h3>
+      <div class="divider"></div>
+      <div class="detail-grid">
+        <span class="label">When</span>
+        <span>January / February 2027</span>
+        <span class="label">Where</span>
+        <span>A cabin. Somewhere isolated. Somewhere cold.</span>
+        <span class="label">Vibe</span>
+        <span>Pack in, cook together, hang out</span>
+      </div>
     </section>
 
     <section>
-      <h1>That's it!</h1>
-      <p class="subtitle">Host this file anywhere to share via URL</p>
+      <h3>The Ingredients</h3>
+      <div class="divider"></div>
+      <div class="cabin-list">
+        <ul>
+          <li>Skiing &mdash; bunny slope heroes welcome</li>
+          <li>Hiking &amp; nature adventures</li>
+          <li>Home-cooked meals &mdash; someone's burning the steaks</li>
+          <li>Crackling fire, cold beers, good company</li>
+          <li>No pressure &mdash; do whatever you want, skip whatever you want</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h3>The Road Trip?</h3>
+      <div class="divider"></div>
+      <p>Possible plan: rent a big <span class="accent">sprinter van</span>, road trip to the cabin together.</p>
+      <br>
+      <p class="dim">More details to come. Suggestions welcome.</p>
+    </section>
+
+    <!-- ==================== MEET THE GROOMSMEN ==================== -->
+    <section>
+      <h2>Meet the Crew</h2>
+      <div class="divider"></div>
+      <p>Not everyone knows each other yet.<br>That changes now.</p>
+    </section>
+
+    <!-- Groomsman 1 -->
+    <section>
+      <div class="groomsman-card">
+        <div class="placeholder-photo">👤</div>
+        <span class="name">Groomsman #1</span>
+        <span class="connection">How Trevor knows them</span>
+        <div class="divider"></div>
+        <p class="bio">A funny bio and/or roast goes here. Something that captures who they are in a sentence or two.</p>
+        <span class="superlative">⭐ Superlative TBD</span>
+      </div>
+    </section>
+
+    <!-- Groomsman 2 -->
+    <section>
+      <div class="groomsman-card">
+        <div class="placeholder-photo">👤</div>
+        <span class="name">Groomsman #2</span>
+        <span class="connection">How Trevor knows them</span>
+        <div class="divider"></div>
+        <p class="bio">A funny bio and/or roast goes here. Something that captures who they are in a sentence or two.</p>
+        <span class="superlative">⭐ Superlative TBD</span>
+      </div>
+    </section>
+
+    <!-- Groomsman 3 -->
+    <section>
+      <div class="groomsman-card">
+        <div class="placeholder-photo">👤</div>
+        <span class="name">Groomsman #3</span>
+        <span class="connection">How Trevor knows them</span>
+        <div class="divider"></div>
+        <p class="bio">A funny bio and/or roast goes here. Something that captures who they are in a sentence or two.</p>
+        <span class="superlative">⭐ Superlative TBD</span>
+      </div>
+    </section>
+
+    <!-- Groomsman 4 -->
+    <section>
+      <div class="groomsman-card">
+        <div class="placeholder-photo">👤</div>
+        <span class="name">Groomsman #4</span>
+        <span class="connection">How Trevor knows them</span>
+        <div class="divider"></div>
+        <p class="bio">A funny bio and/or roast goes here. Something that captures who they are in a sentence or two.</p>
+        <span class="superlative">⭐ Superlative TBD</span>
+      </div>
+    </section>
+
+    <!-- Groomsman 5 -->
+    <section>
+      <div class="groomsman-card">
+        <div class="placeholder-photo">👤</div>
+        <span class="name">Groomsman #5</span>
+        <span class="connection">How Trevor knows them</span>
+        <div class="divider"></div>
+        <p class="bio">A funny bio and/or roast goes here. Something that captures who they are in a sentence or two.</p>
+        <span class="superlative">⭐ Superlative TBD</span>
+      </div>
+    </section>
+
+    <!-- Groomsman 6 -->
+    <section>
+      <div class="groomsman-card">
+        <div class="placeholder-photo">👤</div>
+        <span class="name">Groomsman #6</span>
+        <span class="connection">How Trevor knows them</span>
+        <div class="divider"></div>
+        <p class="bio">A funny bio and/or roast goes here. Something that captures who they are in a sentence or two.</p>
+        <span class="superlative">⭐ Superlative TBD</span>
+      </div>
+    </section>
+
+    <!-- Groomsman 7 -->
+    <section>
+      <div class="groomsman-card">
+        <div class="placeholder-photo">👤</div>
+        <span class="name">Groomsman #7</span>
+        <span class="connection">How Trevor knows them</span>
+        <div class="divider"></div>
+        <p class="bio">A funny bio and/or roast goes here. Something that captures who they are in a sentence or two.</p>
+        <span class="superlative">⭐ Superlative TBD</span>
+      </div>
+    </section>
+
+    <!-- Groomsman 8 -->
+    <section>
+      <div class="groomsman-card">
+        <div class="placeholder-photo">👤</div>
+        <span class="name">Groomsman #8</span>
+        <span class="connection">How Trevor knows them</span>
+        <div class="divider"></div>
+        <p class="bio">A funny bio and/or roast goes here. Something that captures who they are in a sentence or two.</p>
+        <span class="superlative">⭐ Superlative TBD</span>
+      </div>
+    </section>
+
+    <!-- ==================== CLOSING ==================== -->
+    <section>
+      <h2>The Important Dates</h2>
+      <div class="divider"></div>
+      <div class="detail-grid">
+        <span class="label">Bach Party</span>
+        <span>Jan / Feb 2027</span>
+        <span class="label">Wedding</span>
+        <span>April 15, 2027</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>So... You In?</h2>
+      <div class="divider"></div>
+      <p>Text me. Call me. Send a carrier pigeon.</p>
+      <p>Just don't leave me on read.</p>
+      <br>
+      <p class="dim">Let's make this happen.</p>
     </section>
 
   </div>
@@ -82,7 +385,9 @@ console.log(greet("World"));
     controls: true,
     progress: true,
     center: true,
-    transition: 'slide'
+    transition: 'fade',
+    transitionSpeed: 'slow',
+    backgroundTransition: 'fade'
   });
 </script>
 </body>

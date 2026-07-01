@@ -149,7 +149,27 @@
   .reveal .progress span { background: var(--accent); }
   .reveal .controls { color: var(--accent); }
 
+  .swipe-hint {
+    display: none;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(10px); }
+  }
+
   @media (max-width: 600px) {
+    .swipe-hint {
+      display: block;
+      color: var(--cream-dim);
+      font-size: 0.6em;
+      margin-top: 1em;
+    }
+    .swipe-hint span {
+      display: inline-block;
+      animation: bounce 1.5s ease infinite;
+      font-size: 1.6em;
+    }
     .reveal h1 { font-size: 2.2em; }
     .reveal h2 { font-size: 1.6em; }
     .reveal h3 { font-size: 1.3em; }
@@ -209,6 +229,7 @@
       <h2>I'm Getting Married.</h2>
       <div class="divider"></div>
       <p>And I need you in my corner.</p>
+      <div class="swipe-hint"><span>&darr;</span></div>
     </section>
 
     <section>
@@ -449,7 +470,9 @@
     controls: true,
     progress: true,
     center: true,
-    transition: 'none',
+    transition: 'fade',
+    transitionSpeed: 'slow',
+    backgroundTransition: 'fade',
     margin: 0.1,
     minScale: 0.2,
     maxScale: 1.5

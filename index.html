@@ -475,15 +475,23 @@
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
   var isMobile = window.innerWidth <= 600;
+
+  if (isMobile) {
+    var slides = document.querySelector('.slides');
+    var wrapper = document.createElement('section');
+    var children = Array.from(slides.children);
+    children.forEach(function(child) { wrapper.appendChild(child); });
+    slides.appendChild(wrapper);
+  }
+
   Reveal.initialize({
     hash: true,
     controls: true,
     progress: true,
     center: true,
     transition: 'slide',
-    navigationMode: 'linear',
-    width: isMobile ? window.innerWidth : 960,
-    height: isMobile ? window.innerHeight : 700,
+    width: isMobile ? window.innerWidth * 0.95 : 960,
+    height: isMobile ? window.innerHeight * 0.9 : 700,
     margin: isMobile ? 0.02 : 0.1,
     minScale: 1,
     maxScale: 1

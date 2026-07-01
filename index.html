@@ -168,7 +168,7 @@
     .swipe-hint span {
       display: inline-block;
       animation: bounce 1.5s ease infinite;
-      font-size: 1.6em;
+      font-size: 3em;
     }
     .reveal h1 { font-size: 2.2em; }
     .reveal h2 { font-size: 1.6em; }
@@ -470,9 +470,8 @@
     controls: true,
     progress: true,
     center: true,
-    transition: 'fade',
-    transitionSpeed: 'slow',
-    backgroundTransition: 'fade',
+    transition: 'slide',
+    transitionSpeed: 'default',
     margin: 0.1,
     minScale: 0.2,
     maxScale: 1.5
@@ -503,7 +502,7 @@
       } else {
         if (dy < 0) Reveal.down(); else Reveal.up();
       }
-      setTimeout(function() { locked = false; }, 400);
+      setTimeout(function() { locked = false; }, 150);
     }, { passive: false });
   })();
 </script>

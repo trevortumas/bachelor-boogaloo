@@ -150,7 +150,37 @@
   .reveal .controls { color: var(--accent); }
 
   @media (max-width: 600px) {
-    .reveal .slides { zoom: 1.3; }
+    .reveal h1 { font-size: clamp(1.4em, 5vw, 1.8em); }
+    .reveal h2 { font-size: clamp(1.1em, 4vw, 1.25em); }
+    .reveal h3 { font-size: clamp(0.95em, 3.5vw, 1em); }
+    .reveal p, .reveal li { font-size: clamp(0.65em, 2.5vw, 0.7em); }
+    .reveal .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 0.1em 0;
+      font-size: clamp(0.7em, 2.8vw, 0.8em);
+    }
+    .reveal .detail-grid .label {
+      text-align: left;
+      color: var(--accent);
+      margin-top: 0.4em;
+    }
+    .reveal .cabin-photos {
+      flex-direction: column;
+      align-items: center;
+    }
+    .reveal .cabin-photos img {
+      max-height: 160px !important;
+    }
+    .reveal .pros-cons {
+      flex-direction: column !important;
+    }
+    .reveal .pros-cons .map-col {
+      min-width: unset !important;
+    }
+    .reveal .pros-cons .map-col img {
+      max-height: 200px !important;
+    }
+    .reveal .stamp { font-size: 1em; }
   }
 </style>
 </head>
@@ -248,7 +278,7 @@
     <section>
       <h3>Greater Yellowstone Ecosystem</h3>
       <div class="divider"></div>
-      <div style="display: flex; gap: 0.8em; justify-content: center; margin-top: 0.5em; flex-wrap: wrap;">
+      <div class="cabin-photos" style="display: flex; gap: 0.8em; justify-content: center; margin-top: 0.5em; flex-wrap: wrap;">
         <div style="text-align: center;">
           <img src="images/Cabin_tetonia_frontside.avif" style="max-height: 200px; border-radius: 8px;">
           <p class="dim"><a href="https://www.airbnb.com/rooms/1050759769168815539?check_in=2026-10-15&check_out=2026-10-20&guests=1&adults=8&s=67&unique_share_id=5aaf08f8-9369-4341-b2fc-403f4bbe685b" target="_blank">Tetonia</a></p>
@@ -263,7 +293,7 @@
     <section>
       <h3>Greater Yellowstone Ecosystem</h3>
       <div class="divider"></div>
-      <div style="display: flex; gap: 1.5em; justify-content: center; flex-wrap: wrap; text-align: left; margin: 0 auto;">
+      <div class="pros-cons" style="display: flex; gap: 1.5em; justify-content: center; flex-wrap: wrap; text-align: left; margin: 0 auto;">
         <div style="flex: 1; min-width: 200px;">
           <p class="accent" style="font-weight: 600; margin-bottom: 0.2em;">Advantages</p>
           <ul>
@@ -277,7 +307,7 @@
             <li>Probably would need to road trip (some could fly in, but we'd need to haul in everything)</li>
           </ul>
         </div>
-        <div style="flex: 1; min-width: 250px; display: flex; align-items: center; justify-content: center;">
+        <div class="map-col" style="flex: 1; min-width: 250px; display: flex; align-items: center; justify-content: center;">
           <img src="images/roadtrip_to_yellowstone.png" style="max-height: 550px; max-width: 100%; border-radius: 8px;">
         </div>
       </div>

@@ -158,7 +158,7 @@
     50% { transform: translateY(10px); }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .swipe-hint {
       display: block;
       color: var(--cream-dim);
@@ -170,20 +170,6 @@
       animation: bounce 1.5s ease infinite;
       font-size: 3em;
     }
-    .reveal .stamp {
-      font-size: 0.9em;
-      padding: 0.15em 0.4em;
-    }
-    .reveal h3 { font-size: 0.85em; }
-    .reveal .detail-grid {
-      grid-template-columns: 1fr;
-      gap: 0.1em 0;
-      font-size: 0.65em;
-    }
-    .reveal .detail-grid .label {
-      text-align: left;
-      margin-top: 0.3em;
-    }
     .reveal .cabin-photos {
       flex-direction: column;
       align-items: center;
@@ -194,13 +180,13 @@
     .reveal .pros-cons .map-col {
       min-width: unset !important;
     }
-    .reveal .cabin-list {
-      max-width: 100%;
-      font-size: 0.85em;
+    .reveal .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 0.1em 0;
     }
-    .reveal .groomsman-card img {
-      width: 150px;
-      height: 150px;
+    .reveal .detail-grid .label {
+      text-align: left;
+      margin-top: 0.4em;
     }
   }
 </style>
@@ -450,22 +436,18 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
-  var isMobile = window.innerWidth <= 600;
   Reveal.initialize({
     hash: true,
     controls: true,
     progress: true,
     center: true,
     transition: 'slide',
-    navigationMode: 'linear',
-    width: isMobile ? 500 : 960,
-    height: isMobile ? 850 : 700,
-    margin: 0.05,
-    minScale: 1,
-    maxScale: 1,
-    touch: {
-      swipeThreshold: 120
-    }
+    width: 960,
+    height: 700,
+    margin: 0.04,
+    scrollActivationWidth: 768,
+    scrollSnap: 'mandatory',
+    scrollProgress: 'auto'
   });
 </script>
 </body>

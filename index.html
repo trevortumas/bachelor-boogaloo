@@ -162,7 +162,7 @@
     .swipe-hint {
       display: block;
       color: var(--cream-dim);
-      font-size: 0.7em;
+      font-size: 1.5em;
       margin-top: 0.5em;
     }
     .swipe-hint span {
@@ -170,23 +170,69 @@
       animation: bounce 1.5s ease infinite;
       font-size: 3em;
     }
+
+    /* Typography - scale everything up */
+    .reveal h1 { font-size: 3.5em; }
+    .reveal h2 { font-size: 2.8em; }
+    .reveal h3 { font-size: 2.2em; }
+    .reveal p, .reveal li { font-size: 1.6em; line-height: 1.4; }
+    .reveal .dim { font-size: 1.3em; }
+    .reveal .big-emoji { font-size: 5em; }
+    .reveal .stamp { font-size: 2.4em; }
+    .reveal .divider { margin: 0.6em auto; }
+
+    /* Detail grids - single column, large text */
+    .reveal .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 0.2em 0;
+      font-size: 1.5em;
+    }
+    .reveal .detail-grid .label {
+      text-align: left;
+      margin-top: 0.5em;
+    }
+
+    /* Ingredients list */
+    .reveal .cabin-list { max-width: 100%; }
+    .reveal .cabin-list li { font-size: 1.5em; }
+
+    /* Cabin photos - stack vertically, full width */
     .reveal .cabin-photos {
       flex-direction: column;
       align-items: center;
     }
+    .reveal .cabin-photos img {
+      max-height: none !important;
+      width: 85% !important;
+    }
+
+    /* Pros/cons - stack vertically, map full width */
     .reveal .pros-cons {
       flex-direction: column !important;
     }
     .reveal .pros-cons .map-col {
       min-width: unset !important;
     }
-    .reveal .detail-grid {
-      grid-template-columns: 1fr;
-      gap: 0.1em 0;
+    .reveal .pros-cons .map-col img {
+      max-height: none !important;
+      width: 90% !important;
     }
-    .reveal .detail-grid .label {
-      text-align: left;
-      margin-top: 0.4em;
+    .reveal .pros-cons p { font-size: 1.5em; }
+    .reveal .pros-cons li { font-size: 1.4em; }
+
+    /* Groomsman cards - larger photos and text */
+    .reveal .groomsman-card img {
+      width: 350px;
+      height: 350px;
+    }
+    .reveal .groomsman-card .name { font-size: 2.4em; }
+    .reveal .groomsman-card .connection { font-size: 1.3em; }
+    .reveal .groomsman-card .bio { font-size: 1.4em; max-width: 100%; }
+
+    /* Spongebob - fill the slide */
+    .reveal .spongebob {
+      width: 90% !important;
+      max-height: none !important;
     }
   }
 </style>
@@ -444,11 +490,11 @@
     transition: 'slide',
     width: 960,
     height: 700,
-    margin: 0.01,
+    margin: 0.04,
     scrollActivationWidth: 768,
     scrollSnap: 'mandatory',
     scrollProgress: 'auto',
-    scrollLayout: 'compact'
+    scrollLayout: 'full'
   });
 </script>
 </body>

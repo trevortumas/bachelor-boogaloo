@@ -162,43 +162,17 @@
     .swipe-hint {
       display: block;
       color: var(--cream-dim);
-      font-size: 0.6em;
-      margin-top: 1em;
+      font-size: 1.2em;
+      margin-top: 0.5em;
     }
     .swipe-hint span {
       display: inline-block;
       animation: bounce 1.5s ease infinite;
       font-size: 3em;
     }
-    .reveal h1 { font-size: 2.2em; }
-    .reveal h2 { font-size: 1.6em; }
-    .reveal h3 { font-size: 1.3em; }
-    .reveal p, .reveal li { font-size: 0.9em; }
-    .reveal .dim { font-size: 0.8em; }
-    .reveal .detail-grid {
-      grid-template-columns: 1fr;
-      gap: 0.15em 0;
-      font-size: 1em;
-      max-width: 100%;
-    }
-    .reveal .detail-grid .label {
-      text-align: left;
-      margin-top: 0.5em;
-    }
-    .reveal .stamp { font-size: 1.3em; }
-    .reveal .big-emoji { font-size: 3em; }
     .reveal .cabin-photos {
       flex-direction: column;
       align-items: center;
-    }
-    .reveal .cabin-photos {
-      gap: 0.5em;
-    }
-    .reveal .cabin-photos img {
-      width: 70vw !important;
-      max-width: 70vw !important;
-      max-height: none !important;
-      height: auto !important;
     }
     .reveal .pros-cons {
       flex-direction: column !important;
@@ -206,25 +180,13 @@
     .reveal .pros-cons .map-col {
       min-width: unset !important;
     }
-    .reveal .pros-cons .map-col img {
-      width: 80vw !important;
-      max-width: 80vw !important;
-      max-height: none !important;
+    .reveal .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 0.1em 0;
     }
-    .reveal .cabin-list { max-width: 100%; }
-    .reveal .cabin-list li { font-size: 0.85em; }
-    .reveal .groomsman-card img {
-      width: 50vw !important;
-      height: 50vw !important;
-    }
-    .reveal .groomsman-card .name { font-size: 1.3em; }
-    .reveal .groomsman-card .connection { font-size: 0.8em; }
-    .reveal .groomsman-card .bio { font-size: 0.8em; max-width: 100%; }
-    .reveal img { max-width: 90vw !important; }
-    .reveal .spongebob {
-      width: 90vw !important;
-      max-width: 90vw !important;
-      max-height: 85vh !important;
+    .reveal .detail-grid .label {
+      text-align: left;
+      margin-top: 0.4em;
     }
   }
 </style>
@@ -474,27 +436,13 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
-  var isMobile = window.innerWidth <= 600;
-
-  if (isMobile) {
-    var slides = document.querySelector('.slides');
-    var wrapper = document.createElement('section');
-    var children = Array.from(slides.children);
-    children.forEach(function(child) { wrapper.appendChild(child); });
-    slides.appendChild(wrapper);
-  }
-
   Reveal.initialize({
     hash: true,
     controls: true,
     progress: true,
     center: true,
-    transition: 'slide',
-    width: isMobile ? window.innerWidth * 0.95 : 960,
-    height: isMobile ? window.innerHeight * 0.9 : 700,
-    margin: isMobile ? 0.02 : 0.1,
-    minScale: 1,
-    maxScale: 1
+    transition: 'fade',
+    navigationMode: 'linear'
   });
 </script>
 </body>

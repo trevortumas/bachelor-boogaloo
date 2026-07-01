@@ -170,6 +170,20 @@
       animation: bounce 1.5s ease infinite;
       font-size: 3em;
     }
+    .reveal .stamp {
+      font-size: 0.9em;
+      padding: 0.15em 0.4em;
+    }
+    .reveal h3 { font-size: 0.85em; }
+    .reveal .detail-grid {
+      grid-template-columns: 1fr;
+      gap: 0.1em 0;
+      font-size: 0.65em;
+    }
+    .reveal .detail-grid .label {
+      text-align: left;
+      margin-top: 0.3em;
+    }
     .reveal .cabin-photos {
       flex-direction: column;
       align-items: center;
@@ -180,13 +194,9 @@
     .reveal .pros-cons .map-col {
       min-width: unset !important;
     }
-    .reveal .detail-grid {
-      grid-template-columns: 1fr;
-      gap: 0.1em 0;
-    }
-    .reveal .detail-grid .label {
-      text-align: left;
-      margin-top: 0.4em;
+    .reveal .cabin-list {
+      max-width: 100%;
+      font-size: 0.85em;
     }
     .reveal .groomsman-card img {
       width: 150px;
@@ -452,7 +462,10 @@
     height: isMobile ? 850 : 700,
     margin: 0.05,
     minScale: 1,
-    maxScale: 1
+    maxScale: 1,
+    touch: {
+      swipeThreshold: 120
+    }
   });
 </script>
 </body>

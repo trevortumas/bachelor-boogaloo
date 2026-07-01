@@ -149,6 +149,12 @@
   .reveal .progress span { background: var(--accent); }
   .reveal .controls { color: var(--accent); }
 
+  .reveal .slides section {
+    box-sizing: border-box;
+    padding: 20px;
+    overflow: hidden;
+  }
+
   @media (max-width: 600px) {
     .reveal h1 { font-size: clamp(1.4em, 5vw, 1.8em); }
     .reveal h2 { font-size: clamp(1.1em, 4vw, 1.25em); }
@@ -181,6 +187,11 @@
       max-height: 200px !important;
     }
     .reveal .stamp { font-size: 1em; }
+    .reveal .slides section { padding: 10px; }
+    .reveal .detail-grid { max-width: 100%; }
+    .reveal .cabin-list { max-width: 100%; }
+    .reveal .groomsman-card .bio { max-width: 100%; }
+    .reveal img { max-width: 100%; }
   }
 </style>
 </head>
@@ -437,10 +448,10 @@
     transition: 'fade',
     transitionSpeed: 'slow',
     backgroundTransition: 'fade',
-    margin: 0.04,
-    minScale: 0.5,
-    maxScale: 2.0,
-    touchSensitivity: 40
+    margin: 0.1,
+    minScale: 0.2,
+    maxScale: 1.5,
+    touch: { swipeThreshold: 100 }
   });
 </script>
 </body>

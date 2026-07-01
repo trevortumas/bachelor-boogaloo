@@ -474,6 +474,7 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
 <script>
+  var isMobile = window.innerWidth <= 600;
   Reveal.initialize({
     hash: true,
     controls: true,
@@ -481,9 +482,11 @@
     center: true,
     transition: 'slide',
     navigationMode: 'linear',
-    margin: 0.1,
-    minScale: 0.2,
-    maxScale: 1.5
+    width: isMobile ? window.innerWidth : 960,
+    height: isMobile ? window.innerHeight : 700,
+    margin: isMobile ? 0.02 : 0.1,
+    minScale: 1,
+    maxScale: 1
   });
 </script>
 </body>
